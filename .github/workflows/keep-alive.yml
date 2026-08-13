@@ -1,0 +1,34 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '58 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping jf55699
+        run: curl -sSf "https://www.jf55699.xyz/" > /dev/null
+
+      - name: Ping mrx.wiki
+        run: curl -sSf "https://www.mrx.wiki/en/posts/hello-world" > /dev/null
+
+      - name: Ping papershub
+        run: curl -sSf "https://www.papershub.cn/" > /dev/null
+
+      - name: Login to 51-movies
+        run: |
+          curl -sSf --url 'https://51-movies-ten.vercel.app/login' \
+            -H 'sec-ch-ua-platform: "macOS"' \
+            -H 'next-action: 603b81901dc9945c50992d2f77966f169b3147ea88' \
+            -H 'Referer: https://51-movies-ten.vercel.app/login' \
+            -H 'sec-ch-ua: "Not=A?Brand";v="99", "Google Chrome";v="151", "Chromium";v="151"' \
+            -H 'sec-ch-ua-mobile: ?0' \
+            -H 'next-router-state-tree: %5B%22%22%2C%7B%22children%22%3A%5B%22(auth)%22%2C%7B%22children%22%3A%5B%22login%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%5D%7D%2Cnull%2Cnull%2Ctrue%5D' \
+            -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36' \
+            -H 'Accept: text/x-component' \
+            -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryJekF4oHRv5QGTzHe' \
+            --data-raw $'------WebKitFormBoundaryJekF4oHRv5QGTzHe\r\nContent-Disposition: form-data; name="_1_redirect"\r\n\r\n/\r\n------WebKitFormBoundaryJekF4oHRv5QGTzHe\r\nContent-Disposition: form-data; name="_1_email"\r\n\r\n'"${{ secrets.LOGIN_EMAIL }}"$'\r\n------WebKitFormBoundaryJekF4oHRv5QGTzHe\r\nContent-Disposition: form-data; name="_1_password"\r\n\r\n'"${{ secrets.LOGIN_PASSWORD }}"$'\r\n------WebKitFormBoundaryJekF4oHRv5QGTzHe\r\nContent-Disposition: form-data; name="0"\r\n\r\n["$undefined","$K1"]\r\n------WebKitFormBoundaryJekF4oHRv5QGTzHe--\r\n' \
+            > /dev/null
