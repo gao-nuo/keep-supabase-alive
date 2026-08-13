@@ -2,21 +2,60 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    - cron: '58 4 * * *'
+    - cron: '50 4 * * *'
   workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping jf55699
-        run: curl -sSf "https://www.jf55699.xyz/" > /dev/null
+      - name: Ping jf55699 (book RSC)
+        run: |
+          curl -sSf --url 'https://www.jf55699.xyz/book/7db3ab9a-8b29-4e83-bdf7-53647fdb6705' \
+            -H 'accept: */*' \
+            -H 'cache-control: no-cache' \
+            -H 'pragma: no-cache' \
+            -H 'referer: https://www.jf55699.xyz/' \
+            -H 'sec-ch-ua: "Not=A?Brand";v="99", "Google Chrome";v="151", "Chromium";v="151"' \
+            -H 'sec-ch-ua-mobile: ?0' \
+            -H 'sec-ch-ua-platform: "macOS"' \
+            -H 'sec-fetch-dest: empty' \
+            -H 'sec-fetch-mode: cors' \
+            -H 'sec-fetch-site: same-origin' \
+            -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36' \
+            > /dev/null
 
-      - name: Ping mrx.wiki
-        run: curl -sSf "https://www.mrx.wiki/en/posts/hello-world" > /dev/null
+      - name: Ping mrx.wiki (view API)
+        run: |
+          curl -sSf --url 'https://www.mrx.wiki/api/view?slug=hello-world' \
+            -H 'accept: */*' \
+            -H 'cache-control: no-cache' \
+            -H 'pragma: no-cache' \
+            -H 'referer: https://www.mrx.wiki/en/posts/hello-world' \
+            -H 'sec-ch-ua: "Not=A?Brand";v="99", "Google Chrome";v="151", "Chromium";v="151"' \
+            -H 'sec-ch-ua-mobile: ?0' \
+            -H 'sec-ch-ua-platform: "macOS"' \
+            -H 'sec-fetch-dest: empty' \
+            -H 'sec-fetch-mode: cors' \
+            -H 'sec-fetch-site: same-origin' \
+            -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36' \
+            > /dev/null
 
-      - name: Ping papershub
-        run: curl -sSf "https://www.papershub.cn/" > /dev/null
+      - name: Ping papershub (catalog API)
+        run: |
+          curl -sSf --url 'https://www.papershub.cn/assets/data/exam-catalog.json' \
+            -H 'accept: */*' \
+            -H 'cache-control: no-cache' \
+            -H 'pragma: no-cache' \
+            -H 'referer: https://www.papershub.cn/' \
+            -H 'sec-ch-ua: "Not=A?Brand";v="99", "Google Chrome";v="151", "Chromium";v="151"' \
+            -H 'sec-ch-ua-mobile: ?0' \
+            -H 'sec-ch-ua-platform: "macOS"' \
+            -H 'sec-fetch-dest: empty' \
+            -H 'sec-fetch-mode: cors' \
+            -H 'sec-fetch-site: same-origin' \
+            -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36' \
+            > /dev/null
 
       - name: Login to 51-movies
         run: |
